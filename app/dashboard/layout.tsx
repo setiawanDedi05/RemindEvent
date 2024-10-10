@@ -19,6 +19,7 @@ import { signOut } from "../lib/auth";
 import { requireUser } from "../lib/hooks";
 import prisma from "../lib/db";
 import { redirect } from "next/navigation";
+import { Toaster } from "@/components/ui/sonner";
 
 async function getData(userId: string) {
   const data = await prisma.user.findUnique({
@@ -27,7 +28,7 @@ async function getData(userId: string) {
     },
     select: {
       userName: true,
-      grantId: true
+      grantId: true,
     },
   });
 
@@ -35,8 +36,8 @@ async function getData(userId: string) {
     return redirect("/onboarding");
   }
 
-  if(!data.grantId){
-    return redirect("/onboarding/grant-id")
+  if (!data.grantId) {
+    return redirect("/onboarding/grant-id");
   }
 
   return data;
@@ -133,6 +134,7 @@ export default async function DashboardLayout({
           </main>
         </div>
       </div>
+      <Toaster richColors closeButton />
     </>
   );
 }
