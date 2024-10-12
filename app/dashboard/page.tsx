@@ -15,6 +15,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { CopyLinkMenuItem } from "../components/CopyLinkMenu";
+import { MenuActiveSwitch } from "../components/EventTypeSwitcher";
 
 async function getData(userId: string) {
   const data = await prisma.user.findUnique({
@@ -92,19 +94,22 @@ export default async function DashboardPage() {
                             Preview
                           </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <Link2 className="mr-2 size-4" />
-                          Copy
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <Pen className="mr-2 size-4" />
-                          Edit
+                        <CopyLinkMenuItem
+                          meetingUrl={`${process.env.NEXT_PUBLIC_URL}/${data.userName}/${item.url}`}
+                        />
+                        <DropdownMenuItem asChild>
+                          <Link href={`/dashboard/event/${item.id}`}>
+                            <Pen className="mr-2 size-4" />
+                            Edit
+                          </Link>
                         </DropdownMenuItem>
                       </DropdownMenuGroup>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem>
-                        <Trash className="mr-2 size-4" />
-                        Delete
+                      <DropdownMenuItem asChild>
+                        <Link className="flex" href={`/dashboard/event/${item.id}/delete`}>
+                          <Trash className="mr-2 size-4" />
+                          Delete
+                        </Link>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -123,8 +128,13 @@ export default async function DashboardPage() {
                   </div>
                 </Link>
                 <div className="bg-muted flex px-5 py-3 justify-between items-center">
-                  <Switch />
-                  <Button>Edit Event</Button>
+                  <MenuActiveSwitch
+                    initialChecked={item.active}
+                    eventId={item.id}
+                  />
+                  <Button asChild>
+                    <Link href={`/dashboard/event/${item.id}`}>Edit Event</Link>
+                  </Button>
                 </div>
               </div>
             ))}
