@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/logo.png";
 import { AuthModal } from "./AuthModal";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   return (
@@ -12,7 +13,10 @@ export function Navbar() {
           Remind<span className="text-primary">Event</span>
         </h4>
       </Link>
-      <AuthModal />
+      <div className="hidden md:flex md:justify-end md:spax4 gap-4">
+        <ThemeToggle />
+        <AuthModal />
+      </div>
     </div>
   );
 }
