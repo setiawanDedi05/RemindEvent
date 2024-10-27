@@ -8,7 +8,7 @@ import {
 import Image from "next/image";
 import Logo from "@/public/logo.png";
 import { signIn } from "../lib/auth";
-import { GithubAuthButton, GoogleAuthButton } from "./SubmitButton";
+import { GoogleAuthButton } from "./SubmitButton";
 
 export function AuthModal() {
   return (
@@ -33,15 +33,6 @@ export function AuthModal() {
             className="w-full"
           >
             <GoogleAuthButton />
-          </form>
-          <form
-            action={async () => {
-              "use server";
-              await signIn("github");
-            }}
-            className="w-full"
-          >
-            <GithubAuthButton />
           </form>
         </div>
       </DialogContent>

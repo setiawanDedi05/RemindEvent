@@ -10,12 +10,14 @@ export function Hero() {
           Introducing RemindEvent 1.0
         </span>
         <h1 className="mt-8 text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-none font-medium ">
-          Scheduling made{" "}
-          <span className="block text-primary -mt-2">super easy!</span>
+          RemindEvent{" "}
+          <span className="block text-primary -mt-2">Remind everything!</span>
         </h1>
         <p className="max-w-xl mx-auto mt-4 lg:text-lg text-muted-foreground">
-          Scheduling a meeting can be a pain. but we at RemindEvent make it easy
-          for your clients to schedule meeting with you.{" "}
+          RemindEvent makes meeting scheduling effortless, integrating smoothly
+          with Google Calendar. Stay organized and never miss an important
+          event, no matter how busy your day gets. Focus on what matters, while
+          we handle the reminders and keep you in sync.
         </p>
 
         <div className="mt-5 mb-12">
@@ -37,19 +39,19 @@ export function Hero() {
             <g filter="url(#filter0_f_10_20)">
               <path
                 d="M128.6 0H0V322.2L106.2 134.75L128.6 0Z"
-                fill="#03FFE0"
+                fill="#740938"
               ></path>
               <path
                 d="M0 322.2V400H240H320L106.2 134.75L0 322.2Z"
-                fill="#7C87F8"
+                fill="#AF1740"
               ></path>
               <path
                 d="M320 400H400V78.75L106.2 134.75L320 400Z"
-                fill="#4C65E4"
+                fill="#CC2B52"
               ></path>
               <path
                 d="M400 0H128.6L106.2 134.75L400 78.75V0Z"
-                fill="#043AFF"
+                fill="#DE7C7D"
               ></path>
             </g>
           </g>

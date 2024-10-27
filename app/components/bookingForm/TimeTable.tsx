@@ -11,7 +11,7 @@ import {
   parse,
 } from "date-fns";
 import Link from "next/link";
-import { GetFreeBusyRequest, GetFreeBusyResponse, NylasResponse } from "nylas";
+import { GetFreeBusyResponse, NylasResponse } from "nylas";
 interface iAppProps {
   selectedDate: Date;
   username: string;
@@ -148,7 +148,7 @@ export async function TimeTable({
               href={`?date=${format(selectedDate, "yyyy-MM-dd")}&time=${slot}`}
               key={index}
             >
-              <Button className="w-full mb-2" variant="outline">
+              <Button className="w-full mb-2">
                 {slot}
               </Button>
             </Link>
